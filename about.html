@@ -1,0 +1,412 @@
+{% extends 'basic.html' %}
+{%  load static %}
+{% block title %}about
+{% endblock title %}
+{% block body %}
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+{#body{#}
+{#   margin:0;#}
+{#   padding:0;#}
+{#   font-family: 'Roboto', sans-serif;#}
+{#   position:relative;#}
+{#}#}
+{#nav{#}
+{#   width:100%;#}
+{#   height:100px;#}
+{#   background-color:rgba(51, 51, 51, 0.3);#}
+{#   position:absolute;#}
+{#   top:0;#}
+{#   z-index:5;#}
+{#}#}
+{#.header{#}
+{#   width:100%;#}
+{#   height:500px;#}
+{#   opacity:.8;#}
+{#   background-color:rgb(30, 173, 255);#}
+{#   background-image: url("{% static 'images/hiking.jpg' %}");#}
+{#   background-size:cover;#}
+{#   background-position:bottom;#}
+{#}#}
+.container{
+   width:100%;
+}
+.container h1{
+   font-size:50px
+}
+.about{
+   padding:5% 0;
+   width:100%;
+   height:auto;
+   background-color:#fff;
+}
+.about .left{
+   padding:2% 0;
+   float:left;
+   width:50%;
+   display:inline-block;
+}
+.about .right{
+   width:50%;
+   display:inline-block;
+}
+.about .right img{
+   width:100%
+}
+.about .left h1{
+   text-align:center;
+   color: #b70817;
+   margin:0 0 10px 0;
+}
+.about .left hr{
+   width:20%;
+   border-top:2px solid #000;
+   border-bottom:none;
+}
+.about .left p{
+   font-size:1rem;
+   margin:40px auto;
+   width:80%
+}
+
+.mission{
+   padding:5% 0;
+   width:100%;
+   height:auto;
+   background-color:#fff;
+}
+.mission .right{
+   padding:2% 0;
+   width:50%;
+
+   display:inline-block;
+}
+.mission .left{
+   float:left;
+   width:50%;
+
+   display:inline-block;
+}
+.mission .left img{
+   width:100%;
+}
+.mission .right h1{
+   text-align:center;
+   color: #810a0a;
+   margin:0 0 20px 0;
+}
+.mission .right hr{
+   width:35%;
+   border-top:2px solid #000;
+   border-bottom:none;
+}
+.mission .right p{
+   font-size:1rem;
+   margin:40px auto;
+   width:80%
+}
+
+
+.team{
+   width:90%;
+   margin:auto;
+   padding:5% 5%;
+   over-flow:hidden;
+}
+.team h1{
+   text-align:center;
+   color: #9f0c27;
+
+}
+.team h1 hr{
+   width:15%;
+   border-top:2px solid #000;
+   background-color:transperant;
+   border-bottom:none;
+   margin-bottom:50px;
+}
+.team .card{
+   padding-bottom:20px;
+   padding-top:20px;
+   position:relative;
+   min-width:20%;
+   height:500px !important;
+   height:auto;
+   background-color:#fff;
+   display:inline-block;
+   margin:40px 6.5%;
+   box-shadow: 0 0 20px 2px rgba(0,0,0,0.5);
+   text-align:center;
+}
+.card .circle-container{
+   position:relative;
+   background-color:#579f79;
+   width:250px;
+   height:250px;
+   border:none;
+   border-radius:50%;
+   margin:auto;
+   color:#fff;
+}
+.circle-container h1{
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   margin:0;
+   font-size:60px;
+}
+
+.team .card h2{
+   text-align:center;
+   margin:30px 0 0 0;
+}
+.team .card h4{
+   text-align:center;
+   margin:10px 0 0 0;
+}
+.team .card p{
+   width:250px;
+   margin:30px auto;
+   text-align:center;
+
+}
+.clear{
+    clear: both;
+}
+
+/* media */
+@media(max-width:1200px){
+   .mission .right p{
+      font-size:.8rem;
+      margin:20px auto;
+   }
+   .about .left p{
+      font-size:.8rem;
+      margin:20px auto;
+   }
+}
+
+
+
+
+@media(max-width:992px){
+   .about .left{
+   width:100%;
+}
+   .about .right{
+   width:100%;
+}
+      .mission .left{
+   width:100%;
+}
+   .mission .right{
+   width:100%;
+}
+   .team .card{
+   width:40%;
+}
+}
+
+@media(max-width:768px){
+      .team .card{
+   width:100%;
+}
+   nav{
+      height:80px;
+   }
+}
+
+
+
+    </style>
+
+{#   <h1>About Us</h1>#}
+{#   <p>Welcome to <strong>planMyTrip !</strong> We're a Adventure booking platform that aims to make your adventure experience easy and stress-free. Here's a bit about our goals, mission, and what makes us unique:</p>#}
+{##}
+{#   <!-- Tabs -->#}
+{#   <ul class="nav nav-tabs" id="aboutTabs" role="tablist">#}
+{#      <li class="nav-item">#}
+{#         <a class="nav-link active" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="true">History</a>#}
+{#      </li>#}
+{#      <li class="nav-item">#}
+{#         <a class="nav-link" id="values-tab" data-toggle="tab" href="#values" role="tab" aria-controls="values" aria-selected="false">Values & Beliefs</a>#}
+{#      </li>#}
+{#      <li class="nav-item">#}
+{#         <a class="nav-link" id="founder-tab" data-toggle="tab" href="#founder" role="tab" aria-controls="founder" aria-selected="false">Founder</a>#}
+{#      </li>#}
+{#   </ul>#}
+{##}
+{#   <!-- Tab Content -->#}
+{#   <div class="tab-content" id="aboutTabsContent">#}
+{#      <div class="tab-pane fade show active" id="history" role="tabpanel" aria-labelledby="history-tab">#}
+{#         <p><strong>How we started:</strong> Our founder, Usama, was frustrated with the process of finding stay and booking adventures for his pleasure. He saw an opportunity to create a platform that would make it easier for travelers to find stay and book adventure, and thus planMyDay App was born.</p>#}
+{##}
+{#         <p><strong>Our mission:</strong> To provide a seamless and stress-free Adventure booking experience for travelers.</p>#}
+{##}
+{#         <p><strong>What makes us unique:</strong> Our platform is designed with the traveler in mind. We've created a user-friendly interface that makes it easy to book adventures, and we offer a wide selection of adventures to choose from.</p>#}
+{##}
+{#         <p><strong>Why customers should choose us:</strong> We're committed to providing the best possible Adventure booking experience for our customers. Our platform is easy to use, we offer a wide selection of Adventures to choose from, and we provide top-notch customer service.</p>#}
+{#      </div>#}
+{##}
+{#      <div class="tab-pane fade" id="values" role="tabpanel" aria-labelledby="values-tab">#}
+{#         <p><strong>Our values:</strong> We believe in providing a high-quality service that is easy to use and provides value to our customers. We also believe in being transparent and honest in our business practices.</p>#}
+{##}
+{#         <p><strong>Our beliefs:</strong> We believe that travel is an important part of life, and that it should be accessible to everyone. We also believe that technology can make travel easier and more enjoyable.</p>#}
+{#      </div>#}
+{##}
+{#      <div class="tab-pane fade" id="founder" role="tabpanel" aria-labelledby="founder-tab">#}
+{#         <p><strong>About our founder:</strong> Usama has over 10 years of experience in the travel industry. He has worked for some of the largest Travel chains in the world, and has a deep understanding of what travelers need and want when it comes to Adventure booking.</p>#}
+{##}
+{#      #}
+{#      <p>Usama started planMyDay App in 2018 with the goal of creating a platform that would make the Adventure booking process easier and more enjoyable for travelers.</p>#}
+{#    </div>#}
+{#  </div>#}
+{#  #}
+{#  <!-- FAQs -->#}
+{#  <h2>Frequently Asked Questions</h2>#}
+{#  <p>Here are some answers to common questions we get from our customers:</p>#}
+{#  <ul>#}
+{#    <li><strong>Q: How do I book for an Adventure through your platform?</strong> A: Simply search for the city or location you want to have fun in, select your check-in and check-out dates, and choose from the available options. Once you've found the adventure you want to book, simply follow the prompts to complete your booking.</li>#}
+{#    <li><strong>Q: Do you offer customer support?</strong> A: Yes! Our customer support team is available 24/7 to assist you with any questions or issues you may have.</li>#}
+{#    <li><strong>Q: How do I cancel a booking?</strong> A: If you need to cancel a booking, simply log in to your account and follow the prompts to cancel your booking. Please note that cancellation policies may vary depending on the adventure and the rate you've booked.</li>#}
+{#  </ul>#}
+{##}
+{# <nav></nav>#}
+{#<div class="header">#}
+{#</div>#}
+
+<div class="container">
+
+   <div class="about">
+      <div class="left">
+         <h1>About us</h1>
+         <hr>
+         <p>Welcome to planMyTrip ! We're a Adventure booking platform that aims to make your adventure experience easy and stress-free. Here's a bit about our goals, mission, and what makes us unique:</p>
+          <p> <b>How we started </b>: Our founder, Usama, was frustrated with the process of finding stay and booking adventures for his pleasure. He saw an opportunity to create a platform that would make it easier for travelers to find stay and book adventure, and thus planMyDay App was born. </p>
+
+
+      </div>
+      <div class="right">
+         <img src="{%  static 'images/hiking.jpg' %}">
+      </div>
+      <div class="clear"></div>
+   </div>
+
+
+
+   <div class="mission">
+
+      <div class="left">
+         <img src="{% static 'images/hiking.jpg' %}">
+      </div>
+        <div class="right">
+         <h1>Mission Statement</h1>
+         <hr>
+            <p>Our mission: To provide a seamless and stress-free Adventure booking experience for travelers.
+</p>
+     <p>What makes us unique: Our platform is designed with the traveler in mind. We've created a user-friendly interface that makes it easy to book adventures, and we offer a wide selection of adventures to choose from.
+</p>
+
+      </div>
+        <div class="about">
+      <div class="left">
+         <h1>Our Values</h1>
+         <hr>
+<p>Why customers should choose us: We're committed to providing the best possible Adventure booking experience for our customers. Our platform is easy to use, we offer a wide selection of Adventures to choose from, and we provide top-notch customer service.</p>
+
+
+      </div>
+      <div class="right">
+         <img src="{%  static 'images/hiking.jpg' %}">
+      </div>
+      <div class="clear"></div>
+   </div>
+
+
+      <div class="clear"></div>
+
+   </div>
+
+
+
+{#       <div class="team">#}
+{#      <h1> Our Team<hr></h1>#}
+{##}
+{##}
+{##}
+{#      <div  class="card">#}
+{#         <div class="circle-container">#}
+{#            <h1 style="color:#fff;">M</h1>#}
+{#         </div>#}
+{#         <h2>Mahesh E U</h2>#}
+{#         <h4>Technical Lead</h4>#}
+{#         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
+{#      </div>#}
+{##}
+{##}
+{##}
+{#      <div class="card">#}
+{#         <div class="circle-container">#}
+{#            <h1 style="color:#fff;">M</h1>#}
+{#         </div>#}
+{#         <h2>Mridul</h2>#}
+{#         <h4>Evangelist</h4>#}
+{#          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
+{#      </div>#}
+{##}
+{##}
+{##}
+{#      <div class="card">#}
+{#         <div class="circle-container">#}
+{#            <h1 style="color:#fff;">R</h1>#}
+{#         </div>#}
+{#         <h2>Rajesh</h2>#}
+{#         <h4>Evangelist</h4>#}
+{#          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
+{#      </div>#}
+{##}
+{##}
+{##}
+{#      <div class="card">#}
+{#        <div class="circle-container">#}
+{#            <h1 style="color:#fff;">B</h1>#}
+{#         </div>#}
+{#         <h2>Bharti</h2>#}
+{#         <h4>Evangelist</h4>#}
+{#          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
+{#      </div>#}
+{##}
+{#             <div class="card">#}
+{#         <div class="circle-container">#}
+{#            <h1 style="color:#fff;">A</h1>#}
+{#         </div>#}
+{#         <h2>Anhsuman</h2>#}
+{#         <h4> Advisor</h4>#}
+{#         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
+{#      </div>#}
+{##}
+{##}
+{##}
+{#      <div class="card">#}
+{#        <div class="circle-container">#}
+{#            <h1 style="color:#fff;">S</h1>#}
+{#         </div>#}
+{#         <h2>Shruti</h2>#}
+{#         <h4> Advisor</h4>#}
+{#          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>#}
+{#      </div>#}
+{##}
+{##}
+{#   </div>#}
+
+
+</div>
+
+  {% endblock %}
+
+
+
+
